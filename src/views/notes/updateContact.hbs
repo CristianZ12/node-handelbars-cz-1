@@ -1,0 +1,33 @@
+<div class="row" style="margin-top: 60px;">
+    <div class="col s1 m1 xl3"></div>
+    <div class="col s10 m10 xl6">
+        <div class="card">
+            <div class="card-action green lighten-5">
+                <h3 class="card-title center-align">
+                    Update Contact
+                </h3>
+            </div>
+            <div class="card-content cyan lighten-5">
+                <form action="/api/update/{{contact.idContact}}?_method=PUT" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="input-field">
+                        <input type="text" name="nameContact" id="nameContact" class="validate" value="{{contact.nameContact}}">
+                        <label for="nameContact">Name of Contact</label>
+                    </div>
+                    <div class="input-field" style="margin-top: 25px;">
+                        <input type="text" name="addressContact" id="addressContact" class="validate" value="{{contact.addressContact}}">
+                        <label for="addressContact">Address of Contact</label>
+                    </div>
+                    <div class="input-field" style="margin-top: 25px;">
+                        <input type="text" name="phoneContact" id="phoneContact" class="validate" value="{{contact.phoneContact}}">
+                        <label for="phoneContact">Phone of Contact</label>
+                    </div>
+                    <div class="input-field" style="margin-top: 25px; display: flex; justify-content: center;">
+                        <button type="submit" class="waves-effect waves-light btn blue lighten-5 black-text">Update Contact</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col s1 m1 xl3"></div>
+</div>

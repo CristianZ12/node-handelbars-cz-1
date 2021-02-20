@@ -1,0 +1,75 @@
+<div class="row" style="margin-top: 60px;">
+    <div class="col s1 m1 xl3"></div>
+    <div class="col s10 m10 xl6">
+        <div class="card">
+            <div class="card-action green lighten-5">
+                <h3 class="card-title center-align">
+                    Add Contact
+                </h3>
+            </div>
+            <div class="card-content cyan lighten-5">
+                <form action="/api/add/contact" method="POST">
+                    <div class="input-field">
+                        <input type="text" name="nameContact" id="nameContact" class="validate">
+                        <label for="nameContact">Name of Contact</label>
+                    </div>
+                    <div class="input-field" style="margin-top: 25px;">
+                        <input type="text" name="addressContact" id="addressContact" class="validate">
+                        <label for="addressContact">Address of Contact</label>
+                    </div>
+                    <div class="input-field" style="margin-top: 25px;">
+                        <input type="text" name="phoneContact" id="phoneContact" class="validate">
+                        <label for="phoneContact">Phone of Contact</label>
+                    </div>
+                    <div class="input-field" style="margin-top: 25px; display: flex; justify-content: center;">
+                        <button class="waves-effect waves-light btn blue lighten-5 black-text">Add Contact</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col s1 m1 xl3"></div>
+</div>
+{{#if contact}}
+<div class="row" style="margin-top: 60px;">
+    <div class="col s1 m1 xl1"></div>
+    <div class="col s10 m10 xl10">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id Contact</th>
+                    <th>Name Contact</th>
+                    <th>Address Contact</th>
+                    <th>Phone Contact</th>
+                    <th>Action Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each contact}}
+                <tr>
+                    <td>{{idContact}}</td>
+                    <td>{{nameContact}}</td>
+                    <td>{{addressContact}}</td>
+                    <td>{{phoneContact}}</td>
+                    <td>
+                        <div>
+                            <a href="/api/contact/{{idContact}}" class="btn waves-effect waves-light blue lighten-4 black-text">Update</a>
+                            <form action="/api/delete/{{idContact}}?_method=DELETE" method="POST">
+                                <input type="hidden" name="_method" value="DELETE" >
+                                <button type="submit" class="btn waves-effect waves-light red lighten-4 black-text">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="col s1 m1 xl1"></div>
+</div>
+{{else}}
+<div>XD</div>
+{{/if}}
+
+
+
